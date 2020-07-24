@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="com.example.countries.countries.listing.CountryItemViewModel" />
+
+		<variable
+			name="callback"
+			type="com.example.countries.countries.listing.CountryItemClickListener" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@android:color/white"
+		android:foreground="?attr/selectableItemBackground"
+		android:onClick="@{() -> callback.onCountryClicked(viewModel.country)}"
+		android:padding="8dp">
+
+		<TextView
+			android:id="@+id/txtName"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.name}"
+			android:textAppearance="@style/TextAppearance.AppCompat.Title"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:text="India" />
+
+		<TextView
+			android:id="@+id/txtCapital"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.capital}"
+			app:layout_constraintEnd_toEndOf="@+id/txtName"
+			app:layout_constraintStart_toStartOf="@+id/txtName"
+			app:layout_constraintTop_toBottomOf="@+id/txtName"
+			tools:text="New Delhi" />
+
+		<TextView
+			android:id="@+id/txtPopulation"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.population}"
+			app:layout_constraintEnd_toEndOf="@+id/txtCapital"
+			app:layout_constraintStart_toStartOf="@+id/txtCapital"
+			app:layout_constraintTop_toBottomOf="@+id/txtCapital"
+			tools:text="1.3 Billion" />
+
+		<TextView
+			android:id="@+id/txtCurrency"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:text="@{viewModel.currency}"
+			app:layout_constraintEnd_toEndOf="@+id/txtPopulation"
+			app:layout_constraintStart_toStartOf="@+id/txtPopulation"
+			app:layout_constraintTop_toBottomOf="@+id/txtPopulation"
+			tools:text="INR" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

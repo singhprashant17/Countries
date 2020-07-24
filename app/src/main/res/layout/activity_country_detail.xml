@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="viewModel"
+			type="com.example.countries.countries.detail.CountryDetailViewModel" />
+
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".countries.detail.CountryDetailActivity">
+
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="?attr/colorPrimary"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:title="@{viewModel.title}"
+			app:titleTextColor="@android:color/white" />
+
+		<TextView
+			android:id="@+id/txtLocation"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginEnd="8dp"
+			android:text="@{viewModel.location}"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+			app:layout_constraintEnd_toEndOf="@+id/toolbar"
+			app:layout_constraintStart_toStartOf="@+id/toolbar"
+			app:layout_constraintTop_toBottomOf="@+id/toolbar"
+			tools:text="New Delhi" />
+
+		<TextView
+			android:id="@+id/txtBorders"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="@{viewModel.borders}"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+			app:layout_constraintEnd_toEndOf="@+id/txtLocation"
+			app:layout_constraintStart_toStartOf="@+id/txtLocation"
+			app:layout_constraintTop_toBottomOf="@+id/txtLocation"
+			tools:text="1.3 Billion" />
+
+		<TextView
+			android:id="@+id/txtLanguages"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="@{viewModel.languages}"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+			app:layout_constraintEnd_toEndOf="@+id/txtBorders"
+			app:layout_constraintStart_toStartOf="@+id/txtBorders"
+			app:layout_constraintTop_toBottomOf="@+id/txtBorders"
+			tools:text="INR" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
